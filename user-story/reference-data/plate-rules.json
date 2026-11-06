@@ -1,0 +1,66 @@
+{
+  "ruleSetId": "plate-wongnai-v1",
+  "version": "1.0.0-draft",
+  "status": "draft-needs-expert-review",
+  "source": {
+    "name": "Wongnai — เลขทะเบียนรถมงคล",
+    "url": "https://www.wongnai.com/articles/lucky-car-registration",
+    "retrievedAt": "2026-11-06",
+    "note": "สรุปสาระสำคัญเพื่ออ้างอิงภายในโปรเจกต์ ไม่คัดลอกเนื้อหาต้นฉบับ ต้องตรวจทานกับต้นฉบับก่อน Production"
+  },
+  "sumMethods": [
+    { "id": "digits-only", "label": "เฉพาะตัวเลข", "description": "บวกตัวเลขทั้งหมดหลังหมวดอักษร (และเลขนำหน้าหมวด ถ้ามี)" },
+    { "id": "with-letters", "label": "รวมค่าอักษร (ทักษา)", "description": "แปลงอักษรเป็นค่า 1–9 ตาม letterValues แล้วบวกกับตัวเลข" }
+  ],
+  "reduceToSingleDigit": { "supported": true, "default": false, "example": "4กข 5900 → 4+5+9+0+0 = 18 → 1+8 = 9" },
+  "letterValues": {
+    "_verify": "ต้องตรวจทานตารางกับต้นฉบับ — แต่ละแหล่งจัดอักษรบางตัว (เช่น ฎ ฏ ฐ) ไม่ตรงกัน",
+    "1": ["ก", "ด", "ถ", "ท", "ภ", "ฤ"],
+    "2": ["ข", "บ", "ป", "ง", "ช"],
+    "3": ["ต", "ฒ", "ฆ"],
+    "4": ["ค", "ธ", "ร", "ญ", "ษ"],
+    "5": ["ฉ", "ฌ", "ณ", "น", "ม", "ห", "ฮ", "ฬ"],
+    "6": ["จ", "ล", "ว", "อ", "ฦ"],
+    "7": ["ซ", "ศ", "ส"],
+    "8": ["ย", "ผ", "ฝ", "พ", "ฟ"],
+    "9": ["ฎ", "ฏ", "ฐ"]
+  },
+  "sumGrades": [
+    { "sums": [14, 41], "grade": "excellent", "pros": "การงานก้าวหน้า มีผู้สนับสนุน", "cons": null },
+    { "sums": [15, 51], "grade": "excellent", "pros": "มีเสน่ห์ การงานมั่นคง", "cons": null },
+    { "sums": [24, 42], "grade": "excellent", "pros": "ค้าขายดี เจรจาเก่ง", "cons": null },
+    { "sums": [36, 63], "grade": "excellent", "pros": "โชคด้านความรักและการเงิน", "cons": null },
+    { "sums": [45, 54], "grade": "excellent", "pros": "ปลอดภัย มีผู้ใหญ่อุปถัมภ์", "cons": null },
+    { "sums": [56, 65], "grade": "excellent", "pros": "มั่งคั่ง การเงินดี", "cons": null },
+    { "sums": [59, 95], "grade": "excellent", "pros": "แคล้วคลาด สุขภาพดี", "cons": null },
+    { "sums": [13, 31, 37], "grade": "avoid", "pros": null, "cons": "เชื่อว่าเกี่ยวกับความใจร้อน อุบัติเหตุ" }
+  ],
+  "birthDay": {
+    "_note": "ยังไม่ได้เทียบกับ Allianz (OQ-19) — ตารางอักษรกาลกิณีตามวันเกิดยังไม่ครบ ใช้ mock จนกว่าจะตรวจทาน",
+    "sun":       { "lucky": [1, 8, 9],    "avoid": [6] },
+    "mon":       { "lucky": [2, 4, 6, 7], "avoid": [1] },
+    "tue":       { "lucky": [3, 5, 8, 9], "avoid": [2] },
+    "wed-day":   { "lucky": [2, 4, 5, 8], "avoid": [3] },
+    "wed-night": { "lucky": [1, 7, 8, 9], "avoid": [5] },
+    "thu":       { "lucky": [1, 4, 5, 9], "avoid": [7] },
+    "fri":       { "lucky": [3, 5, 6, 9], "avoid": [8] },
+    "sat":       { "lucky": [3, 7, 8, 9], "avoid": [4] }
+  },
+  "avoidPairs": [
+    { "pairs": ["13", "31", "37", "73", "35", "53"], "reason": "เชื่อว่าใจร้อน เสี่ยงเฉี่ยวชน" },
+    { "pairs": ["00", "03", "30", "07", "70"], "reason": "เชื่อว่ารถซ่อมบ่อย" }
+  ],
+  "avoidPatterns": [
+    { "id": "one-bracket", "description": "เลข 1 คร่อมหน้า-หลัง", "examples": ["1771", "1001"] },
+    { "id": "front-back-13", "description": "เลขหน้ารวมเลขหลังได้ 13", "examples": [] }
+  ],
+  "precedence": ["avoidPairs", "avoidPatterns", "occupationPairs", "sumGrades"],
+  "_precedenceNote": "ถ้าคู่เลขอยู่ทั้ง avoidPairs และ occupationPairs (เช่น 35/53) ให้แสดงเป็น 'ควรระวัง' และไม่นำไปแนะนำ",
+  "occupationPairs": {
+    "trade-online": ["24", "42", "46", "64", "78", "87", "89"],
+    "government-teacher": ["15", "51", "45", "54", "59"],
+    "office-service-sales": ["23", "32", "24", "42", "36", "63"],
+    "technician-doctor-engineer-traveler": ["35", "53", "39", "93"]
+  },
+  "disclaimer": "ข้อมูลตามความเชื่อ ไม่ใช่ข้อเท็จจริงทางวิทยาศาสตร์หรือข้อกำหนดทางกฎหมาย การขับขี่อย่างปลอดภัยสำคัญที่สุด"
+}

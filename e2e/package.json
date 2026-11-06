@@ -1,0 +1,16 @@
+{
+  "name": "mongkol-e2e",
+  "private": true,
+  "type": "commonjs",
+  "scripts": {
+    "test": "playwright test",
+    "test:gif": "cross-env GIF=1 playwright test --project=chromium",
+    "report": "node scripts/build-report.js"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.56.1",
+    "@types/node": "22.10.2",
+    "cross-env": "7.0.3",
+    "typescript": "5.7.2"
+  }
+}

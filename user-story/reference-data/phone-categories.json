@@ -1,0 +1,15 @@
+{
+  "ruleSetId": "phone-categories-mock",
+  "version": "0.1.0-mock",
+  "status": "mock-needs-expert-review",
+  "note": "นิยามสมมติสำหรับพัฒนา/ทดสอบ (OQ-04) — ต้องให้ Domain Expert กำหนดนิยามจริง",
+  "categories": [
+    { "id": "dragon",   "label": "เบอร์มังกร", "ruleMock": "มีชุดเลข 789 หรือคู่ 78/87 + 89/98", "pros": "อำนาจ บารมี การเงินก้อนใหญ่ ธุรกิจ/ลงทุน/บริหาร", "cons": "ดุดัน อารมณ์ร้อน อาจขัดแย้งกับผู้ใหญ่", "ref": "decoder159 (ตัวอย่าง 789)", "enabled": true },
+    { "id": "phoenix",  "label": "เบอร์หงส์",  "ruleMock": "มีคู่เลข 36/63 หรือ 56/65 ใน 4 หลักท้าย",      "enabled": true },
+    { "id": "rich",     "label": "เบอร์เศรษฐี", "ruleMock": "มีคู่ 89/98 หรือ 56/65 และไม่มีคู่ grade=avoid", "enabled": true },
+    { "id": "vip",      "label": "เบอร์ VIP",  "ruleMock": "4 หลักท้ายเป็นเลขเดียวกัน เช่น xxxx-x9999",   "enabled": true },
+    { "id": "pretty",   "label": "เบอร์สวย",   "ruleMock": "มีเลขเรียง/เลขซ้ำ/เลขสลับ เช่น 1234, 2424",   "enabled": true }
+  ],
+  "occupations": ["trade", "business", "office", "executive", "service", "freelance", "government-teacher", "technician-engineer"],
+  "goals": ["negotiation", "money", "relationship", "health", "career"]
+}

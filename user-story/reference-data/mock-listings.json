@@ -1,0 +1,15 @@
+{
+  "_note": "ข้อมูลสมมติทั้งหมด (MOCK) ห้ามนำขึ้น Production — เบอร์/ทะเบียนเป็นตัวอย่าง ไม่ได้ผูกกับบุคคลจริง และ seller เป็นบัญชีทดสอบ",
+  "phoneListings": [
+    { "id": "PL-0001", "number": "0891245678", "network": "AIS",   "simType": "postpaid", "price": 3500,  "status": "Active",  "sellerId": "seller-test-01" },
+    { "id": "PL-0002", "number": "0816365656", "network": "TRUE",  "simType": "prepaid",  "price": 12900, "status": "Active",  "sellerId": "seller-test-01" },
+    { "id": "PL-0003", "number": "0927878999", "network": "DTAC",  "simType": "prepaid",  "price": 45000, "status": "Pending", "sellerId": "seller-test-02" },
+    { "id": "PL-0004", "number": "0954242424", "network": "AIS",   "simType": "prepaid",  "price": 8900,  "status": "Sold",    "sellerId": "seller-test-02" },
+    { "id": "PL-0005", "number": "0861313737", "network": "TRUE",  "simType": "prepaid",  "price": 990,   "status": "Active",  "sellerId": "seller-test-03" }
+  ],
+  "plateListings": [
+    { "id": "LP-0001", "prefix": "1", "letters": "กข", "digits": "5900", "province": "กรุงเทพมหานคร", "vehicleType": "car", "price": 59000,  "status": "Available" },
+    { "id": "LP-0002", "prefix": "",  "letters": "ฆฆ", "digits": "9999", "province": "กรุงเทพมหานคร", "vehicleType": "car", "price": 890000, "status": "Reserved" },
+    { "id": "LP-0003", "prefix": "2", "letters": "ขค", "digits": "1771", "province": "เชียงใหม่",      "vehicleType": "car", "price": 19000,  "status": "Available" }
+  ]
+}

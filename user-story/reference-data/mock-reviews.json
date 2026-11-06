@@ -1,0 +1,10 @@
+{
+  "_note": "รีวิวสมมติ (MOCK) สำหรับทดสอบ UI/Moderation/สถิติเท่านั้น ห้ามแสดงเป็นรีวิวจริงต่อผู้ใช้",
+  "tags": ["งานเดินดีขึ้น", "ลูกค้าติดต่อบ่อยขึ้น", "เงินคล่องขึ้น", "ไม่รู้สึกต่าง", "ความรักดีขึ้น", "จำง่าย"],
+  "reviews": [
+    { "id": "RV-0001", "type": "number-experience", "nickname": "ผู้ทดสอบ A", "numberMasked": "089-xxx-5678", "usedDays": 90,  "occupation": "trade",  "ratings": { "work": 4, "money": 5, "love": null, "communication": 4 }, "tags": ["ลูกค้าติดต่อบ่อยขึ้น"], "verified": "used-before-review", "status": "Published" },
+    { "id": "RV-0002", "type": "number-experience", "nickname": "ผู้ทดสอบ B", "numberMasked": "081-xxx-5656", "usedDays": 30,  "occupation": "office", "ratings": { "work": 3, "money": 3, "love": 4, "communication": 3 },    "tags": ["ไม่รู้สึกต่าง"],        "verified": null,                 "status": "Published" },
+    { "id": "RV-0003", "type": "number-experience", "nickname": "ผู้ทดสอบ C", "numberMasked": "086-xxx-3737", "usedDays": 180, "occupation": "service","ratings": { "work": 2, "money": 2, "love": 2, "communication": 1 },    "tags": [],                        "verified": "used-before-review", "status": "Published", "_testCase": "รีวิวลบต้องไม่ถูกซ่อน (US-RV-003)" },
+    { "id": "RV-0004", "type": "number-experience", "nickname": "ผู้ทดสอบ D", "numberMasked": "092-xxx-8999", "usedDays": 7,   "occupation": "trade",  "ratings": { "work": 5, "money": 5, "love": 5, "communication": 5 },    "tags": ["เงินคล่องขึ้น"],        "verified": null,                 "status": "Pending",   "text": "ใช้แล้วรวยแน่นอน โทร 0812345678", "_testCase": "ต้อง Flag คำอ้างเกินจริง + ปิดบังเบอร์ในเนื้อหา (US-RV-004/005)" }
+  ]
+}

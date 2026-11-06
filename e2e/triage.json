@@ -1,0 +1,102 @@
+{
+  "updatedAt": "2026-11-07",
+  "categories": [
+    "เว็บผิด",
+    "แผนผิด",
+    "test เขียนผิด"
+  ],
+  "items": [
+    {
+      "tc": "TC-LP-02",
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "category": "เว็บผิด",
+      "bugMode": "ล้มใหม่ในโหมดบั๊ก",
+      "reason": "`9ฎฎ 9999` ได้ผลรวมรวมอักษร **54** แทน **63** — formula ของเว็บคือ `9+9+9+9+9+ฎ(9) = 54` คือนับอักษรซ้ำแค่ครั้งเดียว (ค่า ฎ=9 ถูก) · ยืนยันด้วย `9กก 9999` → 46 (ควร 47) · โหมดปกติผ่าน",
+      "evidence": "Expected letters 63 Received 54 · probe API: formula มี ฎ(9) แค่ 1 term"
+    },
+    {
+      "tc": "TC-LP-06",
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "category": "เว็บผิด",
+      "bugMode": "ล้มใหม่ในโหมดบั๊ก",
+      "reason": "`0กข 1` (เลขนำหน้า 0) ถูกรับเป็นทะเบียนปกติ ได้ **200** ไม่มีข้อความ — แผนต้อง **400** \"เลขนำหน้าต้องเป็น 1–9\" (BR-LP-01–04, LD-I01) · กรณีอื่น (`10กข 1`, `AB 1234`, `กข`) ยังถูกปฏิเสธถูกต้อง · โหมดปกติผ่าน",
+      "evidence": "Expected 400 Received 200 · message undefined"
+    },
+    {
+      "tc": "TC-AU-02",
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "category": "เว็บผิด",
+      "bugMode": "ล้มใหม่ในโหมดบั๊ก",
+      "reason": "Lockout off-by-one: `locked.test` (นับผิดแล้ว 4) ผิดครั้งที่ 5 ได้ **401** \"ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง\" แทน **423** · รหัสถูกต่อทันทีได้ **200** (เข้าได้) · probe API: ล็อกที่ครั้งที่ **6** · แผน NFR-06 ล็อกที่ครั้งที่ 5 · ตรงกับ §8.1 ข้อ 11 · โหมดปกติผ่าน",
+      "evidence": "ครั้งที่5 401 / ครั้งที่6 423 · test-report/logs/TC-AU-02-<browser>.log"
+    },
+    {
+      "tc": "TC-AD-05",
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "category": "เว็บผิด",
+      "reason": "คลิก Approve 2 ครั้งติดกันจริงที่ `/admin/versions` → หน้าเว็บส่งคำขอ approve 2 ครั้ง ได้ **200, 200** และ Audit มี APPROVED **2 แถว** (แผนต้อง 1 แถว และครั้งที่ 2 ต้อง 4xx) · ภาพหน้าจอขึ้น \"Approve สำเร็จ\" ปกติ จึงไม่ใช่ test คลิกพลาด · Approve ซ้ำแบบเรียงลำดับผ่าน API ได้ 409 INVALID_STATE ถูกต้อง แปลว่าเว็บตรวจสถานะแต่ไม่กันคำขอที่มาพร้อมกัน (race) · ขึ้นกับจังหวะ: ล้มในรอบ 1 (FF/WK), 2 (ทุกตัว), 3 (ทุกตัว) แต่ผ่านทุกเบราว์เซอร์ในรอบ 5 — บั๊กแบบเป็นบางครั้ง ไม่ใช่ test ผิด (เมื่อผ่าน = คลิกที่ 2 ไม่ได้ส่งคำขอ) · โหมดบั๊ก: ล้มอีก (chromium รอบ 1–2, firefox รอบ 1) [200,200] / APPROVED 2 แถว",
+      "evidence": "annotation หลักฐาน: approve responses [200,200] · Audit APPROVED = 2 แถว · test-report/logs/TC-AD-05-<browser>.log",
+      "bugMode": "ล้มเหมือนโหมดปกติ"
+    },
+    {
+      "tc": "TC-PH-09",
+      "browsers": [
+        "chromium",
+        "firefox",
+        "webkit"
+      ],
+      "category": "เว็บผิด",
+      "reason": "คลิกปุ่มวิเคราะห์ 2 ครั้งติดกันจริง → ส่ง POST `/api/v1/phone/analyze` **2 ครั้ง** และสถิติ PHONE **+2** (แผน [R] ต้อง 1 ครั้ง / +1) · ปุ่มถูกปิดหลัง render เท่านั้น ไม่มีตัวกันคำขอซ้ำ คลิกที่ 2 จึงหลุดไปได้ตามจังหวะของเบราว์เซอร์ (Firefox ล้มรอบ 1–2, WebKit ล้มรอบ 3, รอบ 5 ผ่านทุกตัว; Chromium ผ่านทุกรอบปกติ แต่ล้มในรอบ GIF ที่ช้า: request 2 / stats +2 — ดู test-report/gifs/TC-PH-09.gif)",
+      "evidence": "expect: จำนวน request วิเคราะห์ Expected 1 Received 2 · สถิติ PHONE ที่เพิ่ม Expected 1 Received 2",
+      "bugMode": "ล้มเหมือนโหมดปกติ (เป็นบางครั้ง)"
+    },
+    {
+      "tc": "TC-UI-01",
+      "browsers": [
+        "chromium"
+      ],
+      "category": "เว็บผิด",
+      "reason": "ที่ 360px หน้าแรก `/` มี Scroll แนวนอน: scrollWidth **347** > clientWidth **345** (การ์ดล้นขวา 2px) — ตรงกับที่เจอตอนสำรวจ (TEST-RUN-1 TC-UI-01) · หน้าอื่นและ 390px ผ่าน · Firefox/WebKit ใช้ scrollbar แบบซ้อนทับ (กว้าง 360 เต็ม) จึงไม่เห็นอาการ · โหมดบั๊ก: ค่าเท่าเดิม 347/345",
+      "evidence": "annotation หลักฐาน: 360px /: scrollWidth 347 / clientWidth 345",
+      "bugMode": "ล้มเหมือนโหมดปกติ",
+      "status": "แก้แล้ว",
+      "fix": "2026-11-07: สาเหตุคือการ์ดบทความใน .bento มี inline style grid-column: 2 / span 2 ทำให้จอมือถือ (1 คอลัมน์) ถูกบังคับเป็น 3 คอลัมน์ → ย้ายไป class .tile-wide ที่มีผลเฉพาะ ≥760px · รอบ 3 เบราว์เซอร์หลังแก้ผ่าน"
+    },
+    {
+      "tc": "TC-UI-01",
+      "browsers": [
+        "webkit"
+      ],
+      "category": "test เขียนผิด",
+      "status": "แก้แล้ว",
+      "reason": "รอบ 1–2 WebKit ได้ scrollWidth ไม่คงที่ (370/383/390/396…) เพราะ test วัดขณะผลลัพธ์ยังเล่น animation เลื่อนเข้า · แก้ test ให้รอ animation แบบจบได้ก่อนวัด (ไม่ได้แก้ค่าคาดหวัง) → WebKit 360/360 · 390/390 ผ่าน และ Chromium ยังล้ม 347/345 เหมือนเดิม",
+      "evidence": "runs รอบ 1–2 เทียบรอบ 3+"
+    },
+    {
+      "tc": "TC-AD-08, TC-AU-01",
+      "browsers": [
+        "webkit"
+      ],
+      "category": "สภาพแวดล้อม (ไม่นับ)",
+      "reason": "รอบ 4 (`sleep-run-2026-11-06T14-35-01-132Z`) เครื่องเข้าโหมดพักกลางรัน — 2 test นี้ใช้เวลา 1.5 ชม. (timeout 60 วินาที) รอบนี้จึงไม่ใช้ตัดสิน เก็บไฟล์ไว้เทียบเท่านั้น",
+      "evidence": "duration 5,782,026 ms / 5,325,482 ms · รอบทั้งหมดใช้ 3.3 ชม. (ปกติ ~3.5 นาที)"
+    }
+  ],
+  "mode": "BUG_MODE=1 (เทียบโหมดปกติใน normal-mode/)"
+}

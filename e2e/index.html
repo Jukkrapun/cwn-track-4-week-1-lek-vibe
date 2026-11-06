@@ -1,0 +1,433 @@
+<!doctype html><html lang="th"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ผลทดสอบ E2E</title>
+<style>
+:root{--bg:#f6f5f2;--fg:#1d1b22;--muted:#6b6576;--card:#fff;--line:#e3dfe8;--ok:#127a46;--okbg:#e5f6ec;--bad:#b42335;--badbg:#fdecee;--accent:#6b3fd6;--warn:#9a6200;--warnbg:#fff4dc}
+@media (prefers-color-scheme:dark){:root{--bg:#141219;--fg:#ece8f3;--muted:#a49db3;--card:#1e1b26;--line:#332e3f;--ok:#4cd391;--okbg:#14301f;--bad:#ff8094;--badbg:#3a1820;--accent:#b49bff;--warn:#f1c062;--warnbg:#3a2c0e}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.55 "Sarabun","Noto Sans Thai",system-ui,sans-serif}
+main{max-width:1280px;margin:0 auto;padding:28px 16px 60px}h1{font-size:28px;margin:0 0 4px}h2{margin:36px 0 12px;font-size:20px}
+.sub{color:var(--muted);margin:0 0 18px}.mode{display:inline-block;padding:3px 10px;border-radius:999px;font-weight:700;font-size:13px;margin-left:8px;vertical-align:middle}
+.mode-0{background:var(--okbg);color:var(--ok)}.mode-1{background:var(--warnbg);color:var(--warn)}.mode-unknown{background:var(--line)}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-left:6px solid var(--bad);border-radius:12px;padding:16px}
+.card.ok{border-left-color:var(--ok)}.card-head{display:flex;justify-content:space-between;align-items:center}
+.browser{font-weight:700;text-transform:capitalize}.verdict{font-weight:800;padding:2px 10px;border-radius:999px;background:var(--badbg);color:var(--bad)}
+.card.ok .verdict{background:var(--okbg);color:var(--ok)}.big{font-size:38px;font-weight:800;margin:6px 0}.big small{font-size:18px;color:var(--muted)}
+.crit{margin:0;padding-left:18px;font-size:14px}.y{color:var(--ok)}.n{color:var(--bad)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+table{border-collapse:collapse;width:100%;min-width:900px}th,td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left;font-size:14px}
+th{position:sticky;top:0;background:var(--card);font-size:13px;color:var(--muted)}td.id{font-weight:700;white-space:nowrap}
+.exp{color:var(--muted);font-size:12.5px;margin-top:4px}.st{white-space:nowrap}.st.pass{color:var(--ok);font-weight:700}.st.fail{color:var(--bad);font-weight:700}.st.notrun{color:var(--muted)}
+.tri{display:block;font-size:12px;font-weight:700;margin-top:3px;color:var(--warn)}.tri-เว็บผิด{color:var(--bad)}.tri-แผนผิด{color:var(--accent)}
+.flaky{font-size:11px;color:var(--warn)}.pri{font-weight:800;padding:1px 8px;border-radius:6px;background:var(--line)}.pri-P1{background:var(--badbg);color:var(--bad)}
+.media a,.st a{color:var(--accent)}details{margin-top:6px}summary{cursor:pointer;color:var(--accent);font-size:13px}
+pre{white-space:pre-wrap;font-size:12px;background:var(--bg);padding:8px;border-radius:8px;margin:6px 0}.fx{margin-top:6px}.ev{font-size:12.5px;margin-top:4px}
+code{font-size:12.5px}.filters{margin:8px 0;display:flex;gap:6px;flex-wrap:wrap}.filters button{border:1px solid var(--line);background:var(--card);color:var(--fg);border-radius:999px;padding:4px 12px;cursor:pointer}
+.filters button[aria-pressed=true]{background:var(--accent);color:#fff;border-color:var(--accent)}
+</style></head><body><main>
+<h1>ผลทดสอบ E2E — LekVibe <span class="mode mode-0">BUG_MODE=0</span></h1>
+<p class="sub">ตามเกณฑ์ TEST-PLAN.md หัวข้อ 6 · ตัดสินแยกทีละเบราว์เซอร์ · รอบล่าสุด <code>run-2026-11-06T20-01-49-553Z</code> · เวลาเว็บล็อกที่ 2026-11-06T09:00:00+07:00</p>
+<div class="cards"><section class="card bad">
+      <div class="card-head"><span class="browser">chromium</span><span class="verdict">ไม่ผ่านเกณฑ์</span></div>
+      <div class="big">47<small>/48</small></div>
+      <ul class="crit">
+        <li class="n">X-1 P1 ผ่านทั้งหมด: <b>18/19</b></li>
+        <li class="y">X-2 ผ่านรวม ≥ 95%: <b>47/48</b> (ต้อง ≥ 46)</li>
+        <li>รันจริง 48/48 · ไม่ได้รัน/ล้มนับเป็นไม่ผ่าน</li>
+      </ul></section><section class="card ok">
+      <div class="card-head"><span class="browser">firefox</span><span class="verdict">ผ่านเกณฑ์</span></div>
+      <div class="big">47<small>/48</small></div>
+      <ul class="crit">
+        <li class="y">X-1 P1 ผ่านทั้งหมด: <b>19/19</b></li>
+        <li class="y">X-2 ผ่านรวม ≥ 95%: <b>47/48</b> (ต้อง ≥ 46)</li>
+        <li>รันจริง 48/48 · ไม่ได้รัน/ล้มนับเป็นไม่ผ่าน</li>
+      </ul></section><section class="card ok">
+      <div class="card-head"><span class="browser">webkit</span><span class="verdict">ผ่านเกณฑ์</span></div>
+      <div class="big">47<small>/48</small></div>
+      <ul class="crit">
+        <li class="y">X-1 P1 ผ่านทั้งหมด: <b>19/19</b></li>
+        <li class="y">X-2 ผ่านรวม ≥ 95%: <b>47/48</b> (ต้อง ≥ 46)</li>
+        <li>รันจริง 48/48 · ไม่ได้รัน/ล้มนับเป็นไม่ผ่าน</li>
+      </ul></section></div>
+<h2>ทุก Test case (48 ข้อ)</h2>
+<div class="filters" role="group" aria-label="กรอง"><button data-f="all" aria-pressed="true">ทั้งหมด</button><button data-f="fail" aria-pressed="false">เฉพาะที่ล้ม</button><button data-f="P1" aria-pressed="false">P1</button></div>
+<div class="tablewrap"><table><thead><tr><th>รหัส</th><th>สิ่งที่ทดสอบ</th><th>ระดับ</th><th>ที่มา</th><th>chromium</th><th>firefox</th><th>webkit</th><th>หลักฐาน</th></tr></thead><tbody><tr data-p="P1">
+      <td class="id">TC-PH-01</td>
+      <td><strong>E2E Guest</strong>: <code>/</code> → เมนู &quot;เบอร์โทร&quot; → กรอก + เลือกอาชีพ → วิเคราะห์ (ไม่ Login)<div class="exp">คาดหวัง: 6 คู่ (ตำแหน่ง 4–10) ตามลำดับ <code>12 24 45 56 67 78</code> = ควรเลี่ยง ดี ดี ดี ควรเลี่ยง ดี · มีคำแนะนำอาชีพ + เหตุผล · URL ยังเป็น <code>/phone</code></div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-PH-01.gif">GIF</a> <a href="test-report/videos/TC-PH-01.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-PH-02</td>
+      <td>Normalize หลายรูปแบบเป็นเบอร์เดียว<div class="exp">คาดหวัง: ทุกค่าได้ผลเท่ากัน: คู่ <code>81 12 23 34 45 56 67 78</code> (PD-G01)</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-PH-02.gif">GIF</a> <a href="test-report/videos/TC-PH-02.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-PH-03</td>
+      <td>ขอบความยาว + ค่าว่าง<div class="exp">คาดหวัง: 9 และ 11 หลัก → &quot;กรุณากรอกเบอร์มือถือ 10 หลัก&quot; · 10 หลัก → ได้ 6 คู่ · ว่าง → &quot;กรุณากรอกเบอร์มือถือ&quot;</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-PH-03.gif">GIF</a> <a href="test-report/videos/TC-PH-03.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-PH-04</td>
+      <td>ขอบ prefix 06–09<div class="exp">คาดหวัง: 06, 09 → ผ่าน (6 คู่) · 05, 07 → &quot;รองรับเฉพาะเบอร์มือถือ&quot;</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-PH-04.gif">GIF</a> <a href="test-report/videos/TC-PH-04.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-PH-05</td>
+      <td>อักขระผิด<div class="exp">คาดหวัง: HTTP 400 code <code>PHONE_INVALID_CHAR</code> ข้อความ &quot;กรุณากรอกเบอร์มือถือ 10 หลัก&quot;</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-05-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-05-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-05-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-PH-06</td>
+      <td>ระดับ avoid/no-data ครบ (Golden)<div class="exp">คาดหวัง: <code>13 31 13 33 34 47</code> = ควรเลี่ยง ควรเลี่ยง ควรเลี่ยง <strong>ไม่มีข้อมูล</strong> ควรเลี่ยง <strong>ไม่มีข้อมูล</strong> · คู่ไม่มีข้อมูลต้องไม่มีข้อดี/ข้อควรระวัง (เปลี่ยนจาก PD-G03 เพราะหลังตัด 3 หลักแรกไม่เหลือ no-data — CR 2026-11-07)</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-06-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-06-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-06-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-PH-07</td>
+      <td>อาชีพที่ไม่มีกฎเฉพาะ / เป้าหมาย<div class="exp">คาดหวัง: freelance → มีข้อความ &quot;ใช้ผลวิเคราะห์ทั่วไป&quot; · money → คู่แนะนำ <strong>อย่างน้อย 1 คู่</strong> (รายการว่างถือว่าไม่ผ่าน ✚) และทุกคู่มีหมวด money</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-07-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-07-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-07-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-PH-08</td>
+      <td>ตัวเลือกไม่มีจริง (API ตรง)<div class="exp">คาดหวัง: HTTP 400 code <code>INVALID_OPTION</code> ทั้งคู่</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-08-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-08-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-08-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-PH-09</td>
+      <td><strong>กดยืนยันซ้ำ</strong>: ดับเบิลคลิกปุ่มวิเคราะห์<div class="exp">คาดหวัง: ส่ง request วิเคราะห์ 1 ครั้ง (ดู network ทันที) · สถิติ PHONE (<code>/api/v1/admin/stats</code> เทียบค่าก่อน/หลัง) เพิ่ม +1 ไม่ใช่ +2</div><details><summary>รายละเอียดที่ล้ม</summary><div class="fx"><b>firefox</b> — <span class="tri tri-เว็บผิด">เว็บผิด</span> คลิกปุ่มวิเคราะห์ 2 ครั้งติดกันจริง → ส่ง POST <code>/api/v1/phone/analyze</code> <strong>2 ครั้ง</strong> และสถิติ PHONE <strong>+2</strong> (แผน [R] ต้อง 1 ครั้ง / +1) · ปุ่มถูกปิดหลัง render เท่านั้น ไม่มีตัวกันคำขอซ้ำ คลิกที่ 2 จึงหลุดไปได้ตามจังหวะของเบราว์เซอร์ (Firefox ล้มรอบ 1–2, WebKit ล้มรอบ 3, รอบ 5 ผ่านทุกตัว; Chromium ผ่านทุกรอบปกติ แต่ล้มในรอบ GIF ที่ช้า: request 2 / stats +2 — ดู test-report/gifs/TC-PH-09.gif)
+            
+            <pre>Error: จำนวน request วิเคราะห์
+
+expect(received).toBe(expected) // Object.is equality
+
+---
+Error: สถิติ PHONE ที่เพิ่ม
+
+expect(received).toBe(expected) // Object.is equality
+</pre></div><div class="fx"><b>webkit</b> — <span class="tri tri-เว็บผิด">เว็บผิด</span> คลิกปุ่มวิเคราะห์ 2 ครั้งติดกันจริง → ส่ง POST <code>/api/v1/phone/analyze</code> <strong>2 ครั้ง</strong> และสถิติ PHONE <strong>+2</strong> (แผน [R] ต้อง 1 ครั้ง / +1) · ปุ่มถูกปิดหลัง render เท่านั้น ไม่มีตัวกันคำขอซ้ำ คลิกที่ 2 จึงหลุดไปได้ตามจังหวะของเบราว์เซอร์ (Firefox ล้มรอบ 1–2, WebKit ล้มรอบ 3, รอบ 5 ผ่านทุกตัว; Chromium ผ่านทุกรอบปกติ แต่ล้มในรอบ GIF ที่ช้า: request 2 / stats +2 — ดู test-report/gifs/TC-PH-09.gif)
+            
+            <pre>Error: จำนวน request วิเคราะห์
+
+expect(received).toBe(expected) // Object.is equality
+
+---
+Error: สถิติ PHONE ที่เพิ่ม
+
+expect(received).toBe(expected) // Object.is equality
+</pre></div></details></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[R] (กดซ้ำต้องไม่ทำงานซ้ำ) + [O]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-PH-09-chromium.log">log</a></td><td class="st fail">✗ ล้ม<span class="tri tri-เว็บผิด">เว็บผิด</span> <a href="test-report/logs/TC-PH-09-firefox.log">log</a></td><td class="st fail">✗ ล้ม<span class="tri tri-เว็บผิด">เว็บผิด</span> <a href="test-report/logs/TC-PH-09-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-PH-09.gif">GIF</a> <a href="test-report/videos/TC-PH-09.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-PH-10</td>
+      <td>กราฟภาพรวมตามหมวด (<code>category-chart</code>) นับจากคู่เลขที่วิเคราะห์<div class="exp">คาดหวัง: แสดง <code>category-row</code> 6 แถวตามลำดับ การงาน การเงิน ความรัก การสื่อสาร สุขภาพ โชคลาภ · กติกา: good/excellent/caution = ฝั่งบวก, avoid/caution = ฝั่งลบ, no-data ไม่นับ · <code>0891245678</code> (+,−): work 1,0 · money 2,1 · love 2,1 · communication 2,0 · health 0,1 · luck 1,0 · <code>0861313737</code>: work 0,3 · communication 0,3 · health 0,6 · หมวดอื่น 0,0 · มีข้อความ &quot;ไม่ใช่คำทำนายเพิ่ม&quot;</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D] (CR 2026-11-07)</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media">— </td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-LP-01</td>
+      <td><strong>E2E</strong> ทะเบียน + วันเกิด<div class="exp">คาดหวัง: เฉพาะตัวเลข 1+5+9+0+0 = <strong>15</strong> (ดีเยี่ยม) · รวมอักษร 15+ก(1)+ข(2) = <strong>18</strong> (ไม่มีข้อมูล) · คู่ <strong>3 คู่เท่านั้น</strong> 59 ดี / 90 ควรเลี่ยง / 00 ควรเลี่ยง (ถ้ามีคู่ 15 = นับเลขนำหน้าผิด ✚) · ✚ ผลรวมหลักที่แสดงเป็น 15/18 ไม่ใช่ค่าลดหลักเดียว 6/9 (BR-LP-07) · Highlight อักษร ข · ไม่มี Highlight เลข</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-LP-01.gif">GIF</a> <a href="test-report/videos/TC-LP-01.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-LP-02</td>
+      <td>ผลรวมสูงสุด (ขอบบน Output)<div class="exp">คาดหวัง: 9+9+9+9+9 = <strong>45</strong> (ดีเยี่ยม) · 45+ฎ(9)+ฎ(9) = <strong>63</strong> (ดีเยี่ยม)</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-02-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-02-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-02-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-LP-03</td>
+      <td>ผลรวมต่ำสุด (ขอบล่าง Output + ขอบล่าง Input)<div class="exp">คาดหวัง: <code>ก 1</code>: <strong>1</strong> · 1+ก(1) = <strong>2</strong> · ทั้งคู่ไม่มีข้อมูล · ✚ ไม่มีคู่เลข (เลข 1 หลัก) · ✚ <code>1ก 1</code>: 1+1 = <strong>2</strong> · 2+ก(1) = <strong>3</strong> (ถ้าได้ 1/2 = ไม่นับเลขนำหน้า)</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-03-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-03-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-03-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-LP-04</td>
+      <td>ระดับควรเลี่ยงจากผลรวมอักษร<div class="exp">คาดหวัง: 1+2+3+4 = <strong>10</strong> (ไม่มีข้อมูล) · 10+1+2 = <strong>13</strong> (ควรเลี่ยง)</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-04-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-04-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-04-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-LP-05</td>
+      <td>ขอบส่วนตัวเลข<div class="exp">คาดหวัง: <code>กข 9999</code> ผ่าน: 36 / 36+3 = <strong>39</strong> · 5 หลัก → &quot;รองรับรูปแบบ [เลข 1 หลัก] [พยัญชนะไทย 1–2 ตัว] [เลข 1–4 หลัก]&quot; · <code>0123</code> → &quot;ตัวเลขทะเบียนต้องไม่ขึ้นต้นด้วย 0&quot;</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-05-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-05-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-05-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-LP-06</td>
+      <td>เลขนำหน้า / อักษรผิด<div class="exp">คาดหวัง: <code>0</code> → &quot;เลขนำหน้าต้องเป็น 1–9&quot; · <code>10</code> → &quot;รองรับรูปแบบ [เลข 1 หลัก]…&quot; · <code>AB</code> → &quot;รองรับเฉพาะพยัญชนะไทย&quot; · ไม่มีเลข → &quot;กรุณากรอกตัวเลขทะเบียน&quot;</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-06-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-06-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-06-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-LP-07</td>
+      <td>วันเกิด Highlight เลข + อักษร แยกแหล่ง<div class="exp">คาดหวัง: Highlight เลข 7 จำนวน 4 ตำแหน่ง · Highlight อักษร ด และ ท · แหล่งเลข <code>plate-wongnai-v1</code> / แหล่งอักษร <code>plate-allianz-v1</code> (แยกกัน) · ✚ <code>holiday</code> → 400 <code>INVALID_OPTION</code></div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-07-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-07-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-07-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-LP-08</td>
+      <td>จังหวัดไม่มีผลต่อการคำนวณ<div class="exp">คาดหวัง: ทั้ง 3 ได้ 10 / 13 และคู่ 12 caution · 23 good · 34 ไม่มีข้อมูล เท่ากัน</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-08-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-08-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-08-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-LP-09</td>
+      <td>รูปแบบควรเลี่ยง <code>one-bracket</code><div class="exp">คาดหวัง: <code>ขค 1771</code> มีคำเตือนรูปแบบ one-bracket · คู่ 17/77/71 = ควรเลี่ยง · ผลรวม 16 / 16+ข(2)+ค(4) = <strong>22</strong> · <code>1กข 5900</code> ไม่มีคำเตือนรูปแบบ</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-09-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-09-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-09-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-LP-10</td>
+      <td>ลำดับความสำคัญระดับคู่ (precedence) + 35/53 ห้ามแนะนำ<div class="exp">คาดหวัง: <code>กข 3553</code>: 35 caution · 55 ดี · 53 caution · <code>กข 3070</code>: 30/07/70 = ควรเลี่ยงทั้ง 3 · เบอร์: ดี ×6 (ความหมายทั่วไป ไม่มี precedence ทะเบียน) และรายการคู่แนะนำ <strong>ไม่มี</strong> 35 หรือ 53</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-10-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-10-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-10-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-LP-11</td>
+      <td><strong>เสนอเลขทะเบียนตามวันเกิด</strong> (เลือกแค่วันเกิด ไม่กรอกหมวด/ตัวเลข)<div class="exp">คาดหวัง: ปุ่มเปลี่ยนเป็น &quot;แนะนำเลขทะเบียน&quot; · <code>thu</code>: <code>suggested-plate</code> 8 เลขตามลำดับ <code>1419 1445 1454 1455 1544 1545 1554 1599</code> ผลรวม 15 14 14 15 14 15 15 24 · เลขส่งเสริม <code>1, 4, 5, 9</code> เลขควรเลี่ยง <code>7</code> · <code>thu</code>+<code>กข</code>: <code>กข 1415 · กข 1514 · กข 1515 · กข 4151 · กข 4494 · กข 4944 · กข 5141 · กข 5151</code> · ทุกเลขไม่มีเลข 7 · URL ยังเป็น <code>/plate</code></div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D] (CR 2026-11-07)</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-LP-12</td>
+      <td>เสนอเลข: กรณีไม่มีผล / เตือนอักษร / Negative (API ตรง)<div class="exp">คาดหวัง: <code>sun</code>+<code>กข</code> → <code>suggest-empty</code> + <code>suggest-letter-warning</code> อักษร <code>ข</code> · <code>{}</code> → 400 <code>BIRTHDAY_REQUIRED</code> · <code>xx</code> → 400 <code>INVALID_OPTION</code> · 3 อักษร → 400 <code>PLATE_INVALID_FORMAT</code> · <code>AB</code> → 400 <code>PLATE_INVALID_LETTER</code> · ฟอร์มที่กรอกตัวเลขแต่ไม่กรอกอักษรยังได้ <code>PLATE_LETTERS_REQUIRED</code> เหมือนเดิม</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D] (CR 2026-11-07)</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-12-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-12-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-LP-12-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-CT-01</td>
+      <td>24 กับ 42 ได้ผลกลุ่มเดียวกัน<div class="exp">คาดหวัง: ทั้ง 3 ได้ระดับ ดี + &quot;มีเสน่ห์ คนเมตตา มนุษยสัมพันธ์ดี มีเพื่อนช่วยเหลือ&quot; เหมือนกัน</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-CT-01.gif">GIF</a> <a href="test-report/videos/TC-CT-01.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-CT-02</td>
+      <td>ขอบ 00 + คู่ไม่มีข้อมูล + ค่าผิด<div class="exp">คาดหวัง: 00 → ควรเลี่ยง · 33 → ไม่มีข้อมูล · <code>2</code>/<code>245</code>/<code>ab</code> → &quot;กรุณากรอกเลข 2 หลัก&quot;</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-CT-02.gif">GIF</a> <a href="test-report/videos/TC-CT-02.mp4">MP4</a></td>
+    </tr><tr data-p="P3">
+      <td class="id">TC-CT-03</td>
+      <td>ค้นหา + ขอบความยาวคำค้น<div class="exp">คาดหวัง: <code>ผลรวม</code> → มีบทความ <code>plate-sum-two-methods</code> · ✚ กรองหมวด <code>plate</code> → 2 บทความ <code>plate-sum-two-methods</code>, <code>birthday-and-plate</code> (ไม่มีบทความ phone/general) · ×100 → ไม่มี error · ×101 → error <code>QUERY_TOO_LONG</code> (มีข้อความแจ้งว่าคำค้นยาวเกิน) · <code>zzzz-ไม่มี</code> → สถานะไม่พบบทความ</div></td>
+      <td><span class="pri pri-P3">P3</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-CT-03-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-CT-03-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-CT-03-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-CT-03.gif">GIF</a> <a href="test-report/videos/TC-CT-03.mp4">MP4</a></td>
+    </tr><tr data-p="P3">
+      <td class="id">TC-CT-04</td>
+      <td>อ่านบทความ + slug ไม่มี<div class="exp">คาดหวัง: บทความแสดงผู้เขียน &quot;ทีมเนื้อหา (ทดสอบ)&quot; + วันที่ 2026-11-02 + แหล่ง Wongnai · <code>not-exist</code> → HTTP 404</div></td>
+      <td><span class="pri pri-P3">P3</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-CT-04.gif">GIF</a> <a href="test-report/videos/TC-CT-04.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AU-01</td>
+      <td>เข้าถูก / ผิด / ไม่มีผู้ใช้<div class="exp">คาดหวัง: admin.test ถูก → HTTP 200 + เข้า <code>/admin</code> ได้ · รหัสผิด → 401 &quot;ชื่อผู้ใช้หรือรหัสผ่านไม่ถูกต้อง&quot; · <code>nobody.test</code> → 401 ข้อความเดียวกันทุกตัวอักษร</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-01-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-01-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-01-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-AU-01.gif">GIF</a> <a href="test-report/videos/TC-AU-01.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AU-02</td>
+      <td><strong>ค่าขอบ Lockout</strong> (ผิดครั้งที่ 4/5) + ช่วงเวลา 15 นาที<div class="exp">คาดหวัง: locked ผิดครั้งที่ 5 → 423 &quot;บัญชีถูกล็อกชั่วคราว กรุณาลองใหม่ใน 15 นาที&quot; · รหัสถูกทันที → 423 · เลื่อน +14 นาที → 423 · +15 นาที → 200 · admin.test ผิด 4 แล้วถูก → 200</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-02-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-02-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-02-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AU-03</td>
+      <td><strong>ช่วงเวลา</strong> Idle 29/30 นาที<div class="exp">คาดหวัง: idle 29 นาทีแล้วเปิด <code>/admin</code> → ยังอยู่หน้าหลังบ้าน · idle 30 นาที → redirect <code>/admin/login</code></div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-03-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-03-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-03-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-AU-03.gif">GIF</a> <a href="test-report/videos/TC-AU-03.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AU-04</td>
+      <td><strong>เรียก API ที่ต้อง login โดยไม่ login</strong><div class="exp">คาดหวัง: API ทุกตัว → HTTP 401 code <code>UNAUTHENTICATED</code> &quot;กรุณาเข้าสู่ระบบ&quot; · ไม่มี Draft ใหม่เกิดขึ้น · <code>/admin</code> → redirect <code>/admin/login</code></div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-04-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-04-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AU-04-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-AU-04.gif">GIF</a> <a href="test-report/videos/TC-AU-04.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AU-05</td>
+      <td>Logout แล้วกลับเข้า<div class="exp">คาดหวัง: ทุกหน้า redirect <code>/admin/login</code> · API → 401</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D] + [R]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-AU-05.gif">GIF</a> <a href="test-report/videos/TC-AU-05.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AD-01</td>
+      <td><strong>E2E</strong> Draft → Approve → Publish → Rollback + ผลเปลี่ยนทันที (&quot;ใช้คอร์สแล้วครั้งลด&quot;) + Audit<div class="exp">คาดหวัง: หลัง Draft: <code>/pairs?q=47</code> = ไม่มีข้อมูล · หลัง Publish: เวอร์ชันใหม่ ≠ <code>0.1.0-mock</code>, คู่ 47 = ดี, ผลเบอร์ <code>0812347000</code> แสดงเวอร์ชันใหม่ · หลัง Rollback: เวอร์ชันใหม่อีกตัว (ไม่ใช่ <code>0.1.0-mock</code> เดิม), คู่ 47 = ไม่มีข้อมูล, ประวัติเวอร์ชันเดิมยังอยู่ · ✚ เวอร์ชันที่ถูกแทนมีสถานะ Superseded (BR-AD-02) · ✚ <strong>จังหวะตรวจ:</strong> <code>/api/v1/pairs/47</code> และผลเบอร์ตรวจ <strong>ทันที</strong> หลังแต่ละขั้น (ไม่รอ/ไม่ restart) และเปิด <code>/pairs?q=47</code> ใหม่ <strong>หลังรีโหลด</strong> ต้องได้ค่าเดียวกัน · Audit 4 แถว: DRAFT_SAVED/editor.test → APPROVED/admin.test → PUBLISHED/admin.test → ROLLBACK/admin.test</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-01-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-01-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-01-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-AD-01.gif">GIF</a> <a href="test-report/videos/TC-AD-01.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AD-02</td>
+      <td>ห้าม Approve งานตัวเอง<div class="exp">คาดหวัง: HTTP 403 <code>FORBIDDEN_SELF_APPROVE</code> &quot;ไม่สามารถอนุมัติงานของตนเองได้&quot; · Audit ไม่มีแถว APPROVED</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-02-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-02-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-02-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AD-03</td>
+      <td>Editor ทำงานของ Admin ไม่ได้<div class="exp">คาดหวัง: ทั้งหมด → HTTP 403 <code>FORBIDDEN</code> &quot;ไม่มีสิทธิ์ดำเนินการ&quot; · ✚ หลังปิดหมวดถูกปฏิเสธ <code>trade</code> ยังอยู่ใน dropdown <code>/phone</code></div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-03-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-03-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-03-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-AD-03.gif">GIF</a> <a href="test-report/videos/TC-AD-03.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AD-04</td>
+      <td><strong>Publish ซ้อน</strong> 2 Admin พร้อมกัน (&quot;จองซ้อน&quot;)<div class="exp">คาดหวัง: คนแรก 200 · คนที่สอง 409 <code>VERSION_CONFLICT</code> (มีข้อความแจ้งว่ามีการเผยแพร่เวอร์ชันอื่นไปก่อน) · มีเวอร์ชันใหม่เพิ่ม <strong>1</strong> ตัวเท่านั้น</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-04-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-04-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-04-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-AD-05</td>
+      <td><strong>กดยืนยันซ้ำ</strong>: Approve 2 ครั้ง / Publish ก่อน Approve<div class="exp">คาดหวัง: Approve ครั้งที่ 2 ถูกปฏิเสธ (4xx) มีข้อความแจ้งว่าสถานะไม่รองรับ · Audit มี APPROVED <strong>1</strong> แถว · Publish ก่อน Approve ถูกปฏิเสธ (4xx) เวอร์ชันไม่เปลี่ยน</div><details><summary>รายละเอียดที่ล้ม</summary><div class="fx"><b>chromium</b> — <span class="tri tri-เว็บผิด">เว็บผิด</span> คลิก Approve 2 ครั้งติดกันจริงที่ <code>/admin/versions</code> → หน้าเว็บส่งคำขอ approve 2 ครั้ง ได้ <strong>200, 200</strong> และ Audit มี APPROVED <strong>2 แถว</strong> (แผนต้อง 1 แถว และครั้งที่ 2 ต้อง 4xx) · ภาพหน้าจอขึ้น &quot;Approve สำเร็จ&quot; ปกติ จึงไม่ใช่ test คลิกพลาด · Approve ซ้ำแบบเรียงลำดับผ่าน API ได้ 409 INVALID_STATE ถูกต้อง แปลว่าเว็บตรวจสถานะแต่ไม่กันคำขอที่มาพร้อมกัน (race) · ขึ้นกับจังหวะ: ล้มในรอบ 1 (FF/WK), 2 (ทุกตัว), 3 (ทุกตัว) แต่ผ่านทุกเบราว์เซอร์ในรอบ 5 — บั๊กแบบเป็นบางครั้ง ไม่ใช่ test ผิด (เมื่อผ่าน = คลิกที่ 2 ไม่ได้ส่งคำขอ) · โหมดบั๊ก: ล้มอีก (chromium รอบ 1–2, firefox รอบ 1) [200,200] / APPROVED 2 แถว
+            <div class="ev">หลักฐาน: approve responses จากหน้าเว็บ: [200,200] · Audit APPROVED = 2 แถว</div>
+            <pre>Error: approve สำเร็จ
+
+expect(received).toHaveLength(expected)
+
+---
+Error: approve ครั้งถัดไป
+
+expect(received).toBeGreaterThanOrEqual(expected)
+
+---
+Error: expect(received).toHaveLength(expected)
+
+Expected length: 1
+Received length: 2</pre></div></details></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D] + [R]</td>
+      <td class="st fail">✗ ล้ม<span class="tri tri-เว็บผิด">เว็บผิด</span> <a href="test-report/logs/TC-AD-05-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-05-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-05-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-AD-05.gif">GIF</a> <a href="test-report/videos/TC-AD-05.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-AD-06</td>
+      <td>คู่ซ้ำ / ไม่มีแหล่ง / คู่ผิดรูป<div class="exp">คาดหวัง: <code>24</code> → 409 &quot;มีคู่เลขนี้แล้ว&quot; · source ว่าง → 400 <code>SOURCE_REQUIRED</code> (มีข้อความแจ้งว่าต้องระบุแหล่งอ้างอิง) · <code>7</code>/<code>abc</code> → 400 &quot;กรุณากรอกเลข 2 หลัก&quot;</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-06-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-06-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-06-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-AD-07</td>
+      <td>ขอบความยาวข้อความ<div class="exp">คาดหวัง: 500 → 200 บันทึก Draft ได้ · 501 → 400 <code>VALIDATION_LENGTH</code> · 256 → 400 <code>VALIDATION_LENGTH</code> (มีข้อความแจ้งว่าความยาวไม่อยู่ในช่วง)</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-07-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-07-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-07-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-AD-08</td>
+      <td>สร้าง → เผยแพร่ → ปิดหมวด<div class="exp">คาดหวัง: หลัง Publish เปิด <code>/phone</code> ใหม่ (<strong>หลังรีโหลด</strong>) dropdown อาชีพมี &quot;ครูออนไลน์&quot; · หลังปิด → ไม่มี &quot;ครูออนไลน์&quot; และ API ส่ง occupation <code>teacher-online</code> → 400 <code>INVALID_OPTION</code> · ruleRef <code>not-exist</code> → 400 <code>INVALID_OPTION</code></div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-08-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-08-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-08-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-AD-08.gif">GIF</a> <a href="test-report/videos/TC-AD-08.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-AD-09</td>
+      <td>Diff ก่อน Approve<div class="exp">คาดหวัง: Diff แสดงคู่ 47 และ 74 จาก ไม่มีข้อมูล → good (ใหม่) และ <strong>ไม่มี</strong> คู่อื่นเปลี่ยน · ก่อน Approve <code>/api/v1/pairs/47</code> ยังเป็นไม่มีข้อมูล</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-09-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-09-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-AD-09-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-AD-09.gif">GIF</a> <a href="test-report/videos/TC-AD-09.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-SEC-01</td>
+      <td>XSS / SQL ในช่องกรอก<div class="exp">คาดหวัง: ไม่มี dialog ทุกช่อง · phone → <code>PHONE_INVALID_CHAR</code> · pairs → <code>PAIR_INVALID</code> · articles → แสดงเป็นข้อความ · plate → <code>PLATE_INVALID_LETTER</code></div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D] + [R]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-01-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-01-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-01-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-SEC-01.gif">GIF</a> <a href="test-report/videos/TC-SEC-01.mp4">MP4</a></td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-SEC-02</td>
+      <td>ไม่ส่ง/ไม่เก็บเบอร์<div class="exp">คาดหวัง: ทันที: URL ไม่มี <code>0812345678</code> · request เป็น POST · ✚ <strong>หลังรีโหลด</strong> <code>/phone</code>: ช่องเบอร์ว่างและไม่มีผลเดิม · <code>localStorage</code>/<code>sessionStorage</code>/cookie ไม่มี <code>0812345678</code> · stats PHONE +1 และ response stats ไม่มีเบอร์ · <code>GET /api/v1/phone/analyze</code> ไม่ได้ผลวิเคราะห์ (4xx)</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-02-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-02-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-02-webkit.log">log</a></td>
+      <td class="media"><a href="test-report/gifs/TC-SEC-02.gif">GIF</a> <a href="test-report/videos/TC-SEC-02.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-SEC-03</td>
+      <td>Payload ผิดชนิด / JSON เสีย / <code>__proto__</code><div class="exp">คาดหวัง: SEC-05/06 → HTTP 400 ไม่มีคำว่า <code>at </code> / stack trace / path ไฟล์ใน body · SEC-07 → 200 ได้ 6 คู่ปกติ และ <code>GET /api/v1/admin/me</code> ยัง 401</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-03-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-03-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-03-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-SEC-04</td>
+      <td>Rate limit API วิเคราะห์ 30/31 ครั้ง<div class="exp">คาดหวัง: ครั้งที่ 1–30 → 200 · ครั้งที่ 31 → 429 <code>RATE_LIMITED</code> (มีข้อความแจ้งว่าใช้งานถี่เกิน) · เลื่อนเวลา +1 นาที → 200</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-04-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-04-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-04-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P1">
+      <td class="id">TC-SEC-05</td>
+      <td>Rate limit Login 10/11 ครั้ง<div class="exp">คาดหวัง: ครั้งที่ 1–10 → 401 · ครั้งที่ 11 → 429</div></td>
+      <td><span class="pri pri-P1">P1</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-05-chromium.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-05-firefox.log">log</a></td><td class="st pass">✓ ผ่าน <a href="test-report/logs/TC-SEC-05-webkit.log">log</a></td>
+      <td class="media">— </td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-UI-01</td>
+      <td>จอมือถือ 360px / 390px<div class="exp">คาดหวัง: ทุกหน้า <code>document.documentElement.scrollWidth</code> ≤ ความกว้างจอ (ไม่มี Scroll แนวนอน)</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-UI-01.gif">GIF</a> <a href="test-report/videos/TC-UI-01.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-UI-02</td>
+      <td>Rule Set + ป้ายข้อมูลตัวอย่าง + Disclaimer<div class="exp">คาดหวัง: ผลเบอร์แสดงเวอร์ชัน <code>0.1.0-mock</code> + ป้าย &quot;ข้อมูลตัวอย่าง&quot; + ข้อความว่าเป็นความเชื่อ · ผลทะเบียนมีข้อความว่าไม่ได้ยืนยันสถานะทะเบียน และว่าเป็นความเชื่อ ไม่ใช่ข้อห้ามตามกฎหมาย</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-UI-02.gif">GIF</a> <a href="test-report/videos/TC-UI-02.mp4">MP4</a></td>
+    </tr><tr data-p="P2">
+      <td class="id">TC-UI-03</td>
+      <td>คำต้องห้ามทุกหน้า<div class="exp">คาดหวัง: ข้อความทั้งหน้า (<code>document.body.innerText</code>) ไม่มี &quot;แม่นที่สุด&quot; &quot;รับประกัน&quot; &quot;พิสูจน์แล้ว&quot; &quot;รวยแน่นอน&quot; ทุกหน้า</div></td>
+      <td><span class="pri pri-P2">P2</span></td>
+      <td>[D]</td>
+      <td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td><td class="st pass">✓ ผ่าน</td>
+      <td class="media"><a href="test-report/gifs/TC-UI-03.gif">GIF</a> <a href="test-report/videos/TC-UI-03.mp4">MP4</a></td>
+    </tr></tbody></table></div>
+<h2>ทุกรอบที่รัน (เทียบความนิ่ง)</h2><p class="y">ผล 2 รอบล่าสุดตรงกันทุกข้อทุกเบราว์เซอร์ (นิ่ง)</p>
+<div class="tablewrap"><table><thead><tr><th>รอบ</th><th>ชนิด</th><th>BUG_MODE</th><th>chromium</th><th>firefox</th><th>webkit</th></tr></thead><tbody><tr><td><code>run-2026-11-06T14-22-24-996Z</code></td><td>ปกติ</td><td>0</td><td>44 ผ่าน / 1 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>43 ผ่าน / 2 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>43 ผ่าน / 2 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td></tr><tr><td><code>run-2026-11-06T14-26-44-093Z</code></td><td>ปกติ</td><td>0</td><td>43 ผ่าน / 2 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>43 ผ่าน / 2 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>43 ผ่าน / 2 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td></tr><tr><td><code>run-2026-11-06T14-31-24-925Z</code></td><td>ปกติ</td><td>0</td><td>43 ผ่าน / 2 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>44 ผ่าน / 1 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>43 ผ่าน / 2 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td></tr><tr><td><code>sleep-run-2026-11-06T14-35-01-132Z</code></td><td>ไม่นับ (เครื่องพักกลางรัน)</td><td>0</td><td>44 ผ่าน / 1 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>44 ผ่าน / 1 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>41 ผ่าน / 4 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td></tr><tr><td><code>run-2026-11-06T17-50-46-433Z</code></td><td>ปกติ</td><td>0</td><td>44 ผ่าน / 1 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>45 ผ่าน / 0 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>45 ผ่าน / 0 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td></tr><tr><td><code>gif-2026-11-06T17-54-13-538Z</code></td><td>GIF (chromium ช้า)</td><td>0</td><td>43 ผ่าน / 2 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>—</td><td>—</td></tr><tr><td><code>run-2026-11-06T18-06-51-755Z</code></td><td>ปกติ</td><td>1</td><td>40 ผ่าน / 5 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>42 ผ่าน / 3 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>42 ผ่าน / 3 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td></tr><tr><td><code>gif-2026-11-06T18-10-39-190Z</code></td><td>GIF (chromium ช้า)</td><td>1</td><td>40 ผ่าน / 5 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>—</td><td>—</td></tr><tr><td><code>run-2026-11-06T19-03-04-366Z</code></td><td>ปกติ</td><td>0</td><td>28 ผ่าน / 3 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>—</td><td>—</td></tr><tr><td><code>run-2026-11-06T19-04-07-373Z</code></td><td>ปกติ</td><td>0</td><td>24 ผ่าน / 0 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>—</td><td>—</td></tr><tr><td><code>run-2026-11-06T19-14-07-141Z</code></td><td>ปกติ</td><td>0</td><td>16 ผ่าน / 1 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>—</td><td>—</td></tr><tr><td><code>run-2026-11-06T19-50-49-240Z</code></td><td>ปกติ</td><td>0</td><td>15 ผ่าน / 0 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>—</td><td>—</td></tr><tr><td><code>run-2026-11-06T20-00-47-363Z</code></td><td>ปกติ</td><td>0</td><td>4 ผ่าน / 0 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>—</td><td>—</td></tr><tr><td><code>run-2026-11-06T20-01-49-553Z</code></td><td>ปกติ</td><td>0</td><td>47 ผ่าน / 1 ล้ม <span class="n">✗ไม่ผ่านเกณฑ์</span></td><td>47 ผ่าน / 1 ล้ม <span class="y">✓ผ่านเกณฑ์</span></td><td>47 ผ่าน / 1 ล้ม <span class="y">✓ผ่านเกณฑ์</span></td></tr></tbody></table></div>
+<p class="sub">การจำแนกข้อที่ล้มอ่านจาก <code>e2e/triage.json</code> · ข้อ "แผนผิด" ยังนับเป็นล้มจนกว่าจะแก้แผน · สร้างเมื่อ 2026-11-06T20:06:15.669Z</p>
+</main><script>
+document.querySelectorAll('.filters button').forEach(function(b){b.addEventListener('click',function(){
+document.querySelectorAll('.filters button').forEach(function(x){x.setAttribute('aria-pressed',String(x===b))});
+var f=b.getAttribute('data-f');document.querySelectorAll('tbody tr[data-p]').forEach(function(tr){
+var show=f==='all'||(f==='P1'&&tr.getAttribute('data-p')==='P1')||(f==='fail'&&tr.querySelector('.st.fail,.st.notrun'));tr.style.display=show?'':'none'})})});
+</script></body></html>

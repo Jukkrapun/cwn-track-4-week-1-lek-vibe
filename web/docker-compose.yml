@@ -1,0 +1,37 @@
+name: mongkol-web
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: mongkol-web:latest
+    container_name: mongkol-web
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://mongkol:${POSTGRES_PASSWORD:-mongkol_dev_pw}@mongkol-db:5432/mongkol
+      HOSTNAME: 0.0.0.0
+      TZ: Asia/Bangkok
+      BUG_MODE: ${BUG_MODE:-0}
+      ALLOW_TEST_RESET: ${ALLOW_TEST_RESET:-1}
+      RATE_LIMIT_ENABLED: ${RATE_LIMIT_ENABLED:-true}
+      COOKIE_SECURE: ${COOKIE_SECURE:-false}
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://localhost:3000/api/health').then(r=>r.json()).then(j=>process.exit(j.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 10s
+      timeout: 5s
+      retries: 6
+      start_period: 20s
+    deploy:
+      resources:
+        limits:
+          cpus: "1"
+          memory: 768M
+    networks:
+      - mongkol-net
+
+networks:
+  mongkol-net:
+    external: true

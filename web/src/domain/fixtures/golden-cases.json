@@ -1,0 +1,856 @@
+{
+  "_note": "สร้างอัตโนมัติจาก reference-data/ (Rule Set Default ตาม Decision Log) — ห้ามแก้มือ ให้ generate ใหม่เมื่อข้อมูลเปลี่ยน · phonePairs: อ่านคู่เลขตำแหน่ง 4–10 (6 คู่) ตาม Change Request 2026-11-07 · คู่เลขใช้ Rule Set pairs-decoder159 v1.0.0 (decoder159.com (อ.นิติกฤตย์) — หน้า \"ทำนายเบอร์\") สร้างใหม่ด้วย research/decoder159/regen-golden-pairs.cjs",
+  "generatedAt": "2026-11-07",
+  "phonePairs": [
+    {
+      "id": "PR-001",
+      "number": "0812345678",
+      "pairs": [
+        {
+          "pair": "23",
+          "grade": "good"
+        },
+        {
+          "pair": "34",
+          "grade": "avoid"
+        },
+        {
+          "pair": "45",
+          "grade": "good"
+        },
+        {
+          "pair": "56",
+          "grade": "good"
+        },
+        {
+          "pair": "67",
+          "grade": "avoid"
+        },
+        {
+          "pair": "78",
+          "grade": "good"
+        }
+      ]
+    },
+    {
+      "id": "PR-002",
+      "number": "0891245678",
+      "pairs": [
+        {
+          "pair": "12",
+          "grade": "avoid"
+        },
+        {
+          "pair": "24",
+          "grade": "good"
+        },
+        {
+          "pair": "45",
+          "grade": "good"
+        },
+        {
+          "pair": "56",
+          "grade": "good"
+        },
+        {
+          "pair": "67",
+          "grade": "avoid"
+        },
+        {
+          "pair": "78",
+          "grade": "good"
+        }
+      ]
+    },
+    {
+      "id": "PR-003",
+      "number": "0861313737",
+      "pairs": [
+        {
+          "pair": "13",
+          "grade": "avoid"
+        },
+        {
+          "pair": "31",
+          "grade": "avoid"
+        },
+        {
+          "pair": "13",
+          "grade": "avoid"
+        },
+        {
+          "pair": "37",
+          "grade": "avoid"
+        },
+        {
+          "pair": "73",
+          "grade": "avoid"
+        },
+        {
+          "pair": "37",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "PR-004",
+      "number": "0816365656",
+      "pairs": [
+        {
+          "pair": "63",
+          "grade": "good"
+        },
+        {
+          "pair": "36",
+          "grade": "good"
+        },
+        {
+          "pair": "65",
+          "grade": "good"
+        },
+        {
+          "pair": "56",
+          "grade": "good"
+        },
+        {
+          "pair": "65",
+          "grade": "good"
+        },
+        {
+          "pair": "56",
+          "grade": "good"
+        }
+      ]
+    },
+    {
+      "id": "PR-005",
+      "number": "0927878999",
+      "pairs": [
+        {
+          "pair": "78",
+          "grade": "good"
+        },
+        {
+          "pair": "87",
+          "grade": "good"
+        },
+        {
+          "pair": "78",
+          "grade": "good"
+        },
+        {
+          "pair": "89",
+          "grade": "good"
+        },
+        {
+          "pair": "99",
+          "grade": "good"
+        },
+        {
+          "pair": "99",
+          "grade": "good"
+        }
+      ]
+    },
+    {
+      "id": "PR-006",
+      "number": "0954242424",
+      "pairs": [
+        {
+          "pair": "42",
+          "grade": "good"
+        },
+        {
+          "pair": "24",
+          "grade": "good"
+        },
+        {
+          "pair": "42",
+          "grade": "good"
+        },
+        {
+          "pair": "24",
+          "grade": "good"
+        },
+        {
+          "pair": "42",
+          "grade": "good"
+        },
+        {
+          "pair": "24",
+          "grade": "good"
+        }
+      ]
+    },
+    {
+      "id": "PR-007",
+      "number": "0800000000",
+      "pairs": [
+        {
+          "pair": "00",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "PR-015",
+      "number": "0835353535",
+      "pairs": [
+        {
+          "pair": "53",
+          "grade": "good"
+        },
+        {
+          "pair": "35",
+          "grade": "good"
+        },
+        {
+          "pair": "53",
+          "grade": "good"
+        },
+        {
+          "pair": "35",
+          "grade": "good"
+        },
+        {
+          "pair": "53",
+          "grade": "good"
+        },
+        {
+          "pair": "35",
+          "grade": "good"
+        }
+      ]
+    }
+  ],
+  "plateSums": [
+    {
+      "id": "SM-001",
+      "plate": "1กข 5900",
+      "prefix": "1",
+      "letters": "กข",
+      "digits": "5900",
+      "sumDigits": 15,
+      "gradeDigits": "excellent",
+      "sumLetters": 18,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "59",
+          "grade": "good"
+        },
+        {
+          "pair": "90",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "SM-002",
+      "plate": "กข 1234",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "1234",
+      "sumDigits": 10,
+      "gradeDigits": "no-data",
+      "sumLetters": 13,
+      "gradeLetters": "avoid",
+      "pairs": [
+        {
+          "pair": "12",
+          "grade": "avoid"
+        },
+        {
+          "pair": "23",
+          "grade": "good"
+        },
+        {
+          "pair": "34",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "SM-003",
+      "plate": "ฆฆ 9999",
+      "prefix": "",
+      "letters": "ฆฆ",
+      "digits": "9999",
+      "sumDigits": 36,
+      "gradeDigits": "excellent",
+      "sumLetters": 42,
+      "gradeLetters": "excellent",
+      "pairs": [
+        {
+          "pair": "99",
+          "grade": "good"
+        },
+        {
+          "pair": "99",
+          "grade": "good"
+        },
+        {
+          "pair": "99",
+          "grade": "good"
+        }
+      ]
+    },
+    {
+      "id": "SM-004",
+      "plate": "กข 4550",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "4550",
+      "sumDigits": 14,
+      "gradeDigits": "excellent",
+      "sumLetters": 17,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "45",
+          "grade": "good"
+        },
+        {
+          "pair": "55",
+          "grade": "good"
+        },
+        {
+          "pair": "50",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "SM-005",
+      "plate": "กข 37",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "37",
+      "sumDigits": 10,
+      "gradeDigits": "no-data",
+      "sumLetters": 13,
+      "gradeLetters": "avoid",
+      "pairs": [
+        {
+          "pair": "37",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "SM-006",
+      "plate": "ขค 1771",
+      "prefix": "",
+      "letters": "ขค",
+      "digits": "1771",
+      "sumDigits": 16,
+      "gradeDigits": "no-data",
+      "sumLetters": 22,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "17",
+          "grade": "avoid"
+        },
+        {
+          "pair": "77",
+          "grade": "avoid"
+        },
+        {
+          "pair": "71",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "SM-007",
+      "plate": "กก 9900",
+      "prefix": "",
+      "letters": "กก",
+      "digits": "9900",
+      "sumDigits": 18,
+      "gradeDigits": "no-data",
+      "sumLetters": 20,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "99",
+          "grade": "good"
+        },
+        {
+          "pair": "90",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "SM-008",
+      "plate": "กข 6500",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "6500",
+      "sumDigits": 11,
+      "gradeDigits": "no-data",
+      "sumLetters": 14,
+      "gradeLetters": "excellent",
+      "pairs": [
+        {
+          "pair": "65",
+          "grade": "good"
+        },
+        {
+          "pair": "50",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        }
+      ]
+    }
+  ],
+  "plateBirthday": [
+    {
+      "id": "BD-001",
+      "plate": "1กข 5900",
+      "prefix": "1",
+      "letters": "กข",
+      "digits": "5900",
+      "sumDigits": 15,
+      "gradeDigits": "excellent",
+      "sumLetters": 18,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "59",
+          "grade": "good"
+        },
+        {
+          "pair": "90",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        }
+      ],
+      "day": "sun",
+      "highlightDigits": [],
+      "highlightLetters": [
+        "ข"
+      ]
+    },
+    {
+      "id": "BD-002",
+      "plate": "กข 1234",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "1234",
+      "sumDigits": 10,
+      "gradeDigits": "no-data",
+      "sumLetters": 13,
+      "gradeLetters": "avoid",
+      "pairs": [
+        {
+          "pair": "12",
+          "grade": "avoid"
+        },
+        {
+          "pair": "23",
+          "grade": "good"
+        },
+        {
+          "pair": "34",
+          "grade": "avoid"
+        }
+      ],
+      "day": "mon",
+      "highlightDigits": [
+        "1"
+      ],
+      "highlightLetters": []
+    },
+    {
+      "id": "BD-003",
+      "plate": "กข 1234",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "1234",
+      "sumDigits": 10,
+      "gradeDigits": "no-data",
+      "sumLetters": 13,
+      "gradeLetters": "avoid",
+      "pairs": [
+        {
+          "pair": "12",
+          "grade": "avoid"
+        },
+        {
+          "pair": "23",
+          "grade": "good"
+        },
+        {
+          "pair": "34",
+          "grade": "avoid"
+        }
+      ],
+      "day": "tue",
+      "highlightDigits": [
+        "2"
+      ],
+      "highlightLetters": [
+        "ก",
+        "ข"
+      ]
+    },
+    {
+      "id": "BD-004",
+      "plate": "1กข 5900",
+      "prefix": "1",
+      "letters": "กข",
+      "digits": "5900",
+      "sumDigits": 15,
+      "gradeDigits": "excellent",
+      "sumLetters": 18,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "59",
+          "grade": "good"
+        },
+        {
+          "pair": "90",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        }
+      ],
+      "day": "wed-night",
+      "highlightDigits": [
+        "5"
+      ],
+      "highlightLetters": []
+    },
+    {
+      "id": "BD-005",
+      "plate": "1กข 5900",
+      "prefix": "1",
+      "letters": "กข",
+      "digits": "5900",
+      "sumDigits": 15,
+      "gradeDigits": "excellent",
+      "sumLetters": 18,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "59",
+          "grade": "good"
+        },
+        {
+          "pair": "90",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        }
+      ],
+      "day": "wed-day",
+      "highlightDigits": [],
+      "highlightLetters": []
+    },
+    {
+      "id": "BD-006",
+      "plate": "กข 4550",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "4550",
+      "sumDigits": 14,
+      "gradeDigits": "excellent",
+      "sumLetters": 17,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "45",
+          "grade": "good"
+        },
+        {
+          "pair": "55",
+          "grade": "good"
+        },
+        {
+          "pair": "50",
+          "grade": "avoid"
+        }
+      ],
+      "day": "sat",
+      "highlightDigits": [
+        "4"
+      ],
+      "highlightLetters": []
+    },
+    {
+      "id": "BD-007",
+      "plate": "ฆฆ 9999",
+      "prefix": "",
+      "letters": "ฆฆ",
+      "digits": "9999",
+      "sumDigits": 36,
+      "gradeDigits": "excellent",
+      "sumLetters": 42,
+      "gradeLetters": "excellent",
+      "pairs": [
+        {
+          "pair": "99",
+          "grade": "good"
+        },
+        {
+          "pair": "99",
+          "grade": "good"
+        },
+        {
+          "pair": "99",
+          "grade": "good"
+        }
+      ],
+      "day": "fri",
+      "highlightDigits": [],
+      "highlightLetters": []
+    },
+    {
+      "id": "BD-008",
+      "plate": "ดท 7777",
+      "prefix": "",
+      "letters": "ดท",
+      "digits": "7777",
+      "sumDigits": 28,
+      "gradeDigits": "no-data",
+      "sumLetters": 30,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "77",
+          "grade": "avoid"
+        },
+        {
+          "pair": "77",
+          "grade": "avoid"
+        },
+        {
+          "pair": "77",
+          "grade": "avoid"
+        }
+      ],
+      "day": "thu",
+      "highlightDigits": [
+        "7",
+        "7",
+        "7",
+        "7"
+      ],
+      "highlightLetters": [
+        "ด",
+        "ท"
+      ]
+    }
+  ],
+  "platePairs": [
+    {
+      "id": "PP-001",
+      "plate": "1กข 5900",
+      "prefix": "1",
+      "letters": "กข",
+      "digits": "5900",
+      "sumDigits": 15,
+      "gradeDigits": "excellent",
+      "sumLetters": 18,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "59",
+          "grade": "good"
+        },
+        {
+          "pair": "90",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "PP-002",
+      "plate": "กข 1234",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "1234",
+      "sumDigits": 10,
+      "gradeDigits": "no-data",
+      "sumLetters": 13,
+      "gradeLetters": "avoid",
+      "pairs": [
+        {
+          "pair": "12",
+          "grade": "avoid"
+        },
+        {
+          "pair": "23",
+          "grade": "good"
+        },
+        {
+          "pair": "34",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "PP-003",
+      "plate": "กข 37",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "37",
+      "sumDigits": 10,
+      "gradeDigits": "no-data",
+      "sumLetters": 13,
+      "gradeLetters": "avoid",
+      "pairs": [
+        {
+          "pair": "37",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "PP-004",
+      "plate": "ขค 1771",
+      "prefix": "",
+      "letters": "ขค",
+      "digits": "1771",
+      "sumDigits": 16,
+      "gradeDigits": "no-data",
+      "sumLetters": 22,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "17",
+          "grade": "avoid"
+        },
+        {
+          "pair": "77",
+          "grade": "avoid"
+        },
+        {
+          "pair": "71",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "PP-005",
+      "plate": "กข 1001",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "1001",
+      "sumDigits": 2,
+      "gradeDigits": "no-data",
+      "sumLetters": 5,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "10",
+          "grade": "avoid"
+        },
+        {
+          "pair": "00",
+          "grade": "avoid"
+        },
+        {
+          "pair": "01",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "PP-006",
+      "plate": "กข 3070",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "3070",
+      "sumDigits": 10,
+      "gradeDigits": "no-data",
+      "sumLetters": 13,
+      "gradeLetters": "avoid",
+      "pairs": [
+        {
+          "pair": "30",
+          "grade": "avoid"
+        },
+        {
+          "pair": "07",
+          "grade": "avoid"
+        },
+        {
+          "pair": "70",
+          "grade": "avoid"
+        }
+      ]
+    },
+    {
+      "id": "PP-007",
+      "plate": "กข 3553",
+      "prefix": "",
+      "letters": "กข",
+      "digits": "3553",
+      "sumDigits": 16,
+      "gradeDigits": "no-data",
+      "sumLetters": 19,
+      "gradeLetters": "no-data",
+      "pairs": [
+        {
+          "pair": "35",
+          "grade": "caution"
+        },
+        {
+          "pair": "55",
+          "grade": "good"
+        },
+        {
+          "pair": "53",
+          "grade": "caution"
+        }
+      ]
+    }
+  ]
+}
